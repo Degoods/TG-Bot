@@ -1,0 +1,12 @@
+import logging
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackContext
+
+# Set up your bot's token
+TOKEN = "YOUR_BOT_TOKEN"
+
+# Enable logging for debugging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
+def start(update: Update, context: CallbackContext):
+    update.message.reply_text("Welcome to the Meme Bot! Send /meme to get a random meme.")
