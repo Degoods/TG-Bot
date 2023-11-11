@@ -18,3 +18,17 @@ def send_meme(update: Update, context: CallbackContext):
 def main():
     # Create the Updater and pass your bot's token
     updater = Updater(token=TOKEN, use_context=True)
+ # Get the dispatcher to register handlers
+    dp = updater.dispatcher
+
+    # Define a command handler to start the bot
+    dp.add_handler(CommandHandler("start", start))
+
+    # Define a command handler to send memes
+    dp.add_handler(CommandHandler("meme", send_meme))
+
+    # Start the bot
+    updater.start_polling()
+
+    # Run the bot until you send a signal to stop (e.g., Ctrl+C)
+    updater.idle()
